@@ -3,17 +3,99 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Halaman Modern Anda</title>
+    <title>Halaman Modern (CSS Internal)</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="/additional css/style.css">
-</head>
+    <style>
+        /* --- Reset Dasar & Pengaturan Font --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            height: 100%;
+            font-family: 'Poppins', sans-serif;
+            overflow: hidden; /* Mencegah scroll yang tidak diinginkan */
+        }
+
+        /* --- Kontainer Utama (Full Screen & Background) --- */
+        .fullscreen-container {
+            height: 100vh; /* 100% dari tinggi viewport */
+            width: 100%;
+            
+            /* GANTI URL GAMBAR DI BAWAH INI */
+            background-image: url('https://images.unsplash.com/photo-1554141311-6a4a2a41a457?q=80&w=2070&auto=format&fit=crop');
+            
+            background-size: cover; /* Gambar menutupi seluruh area */
+            background-position: center; /* Posisi gambar di tengah */
+            
+            position: relative; 
+            
+            /* KUNCI UNTUK MENENGAKAHKAN TOMBOL ✨ */
+            display: flex;
+            justify-content: center; /* Tengah secara horizontal */
+            align-items: center;     /* Tengah secara vertikal */
+        }
+
+        /* --- Overlay Buram (Blurry Overlay) --- */
+        .fullscreen-container::after {
+            content: ''; /* Wajib ada untuk pseudo-element */
+            position: absolute; /* Diposisikan relatif terhadap .fullscreen-container */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            
+            background-color: rgba(0, 0, 0, 0.2); 
+            
+            /* EFEK KACA BURAM */
+            -webkit-backdrop-filter: blur(10px); /* Untuk Safari */
+            backdrop-filter: blur(10px);         /* Standar */
+            
+            z-index: 1; /* Pastikan overlay di bawah tombol */
+        }
+
+        /* --- Tombol Aksi (CTA Button) --- */
+        .cta-button {
+            position: relative; 
+            z-index: 2; /* Pastikan tombol di atas overlay */
+            
+            padding: 15px 35px;
+            font-size: 16px;
+            font-weight: 600;
+            color: #ffffff;
+            
+            /* Efek kaca pada tombol */
+            background-color: rgba(255, 255, 255, 0.15);
+            border: 2px solid rgba(255, 255, 255, 0.8);
+            
+            border-radius: 50px; /* Membuat sudut sangat tumpul */
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            
+            /* Transisi untuk hover effect yang mulus */
+            transition: all 0.3s ease;
+        }
+
+        /* --- Efek Hover pada Tombol --- */
+        .cta-button:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+            transform: translateY(-3px) scale(1.05); /* Sedikit mengangkat tombol */
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+    </head>
 <body>
+
     <main class="fullscreen-container">
-        <button class="cta-button">Klik Disini</button>
+        <button class="cta-button">Klik Saya</button>
     </main>
+    
 </body>
 </html>

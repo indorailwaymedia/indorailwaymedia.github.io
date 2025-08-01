@@ -1,69 +1,82 @@
-.nav-bg {
-    background-color: #3d3d3d;
+/* --- Reset Dasar & Pengaturan Font --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.h1-judul, .h2-judul, .judul, .h3-judul, p {
-    font-family: montserrat;
+html, body {
+    height: 100%;
+    font-family: 'Poppins', sans-serif;
 }
 
-.judul {
-    font-size: 13pt;
+/* --- Kontainer Utama (Full Screen & Background) --- */
+.fullscreen-container {
+    height: 100vh; /* 100% dari tinggi viewport */
+    width: 100%;
+    
+    /* GANTI URL GAMBAR DI BAWAH INI */
+    background-image: url('https://images.unsplash.com/photo-1507525428034-b723a9ce6890?q=80&w=2070&auto=format&fit=crop');
+    
+    background-size: cover; /* Gambar menutupi seluruh area */
+    background-position: center; /* Posisi gambar di tengah */
+    
+    /* Penting untuk menempatkan overlay dan tombol */
+    position: relative; 
+    
+    /* Menggunakan Flexbox untuk menengahkan item di dalamnya */
+    display: flex;
+    justify-content: center; /* Tengah secara horizontal */
+    align-items: center;     /* Tengah secara vertikal */
 }
 
-.h1-judul {
-    padding-bottom: 2rem;
+/* --- Overlay Buram (Blurry Overlay) --- */
+.fullscreen-container::after {
+    content: ''; /* Wajib ada untuk pseudo-element */
+    position: absolute; /* Diposisikan relatif terhadap .fullscreen-container */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    /* Warna overlay semi-transparan */
+    background-color: rgba(0, 0, 0, 0.2); 
+    
+    /* EFEK BLUR KACA! ✨ */
+    -webkit-backdrop-filter: blur(10px); /* Untuk Safari */
+    backdrop-filter: blur(10px); /* Standar */
+    
+    /* Pastikan overlay di bawah tombol */
+    z-index: 1; 
 }
 
-.h2-judul {
-    padding-top: 2rem;
-    padding-bottom: 2rem;
+/* --- Tombol Aksi (CTA Button) --- */
+.cta-button {
+    /* Pastikan tombol di atas overlay */
+    position: relative; 
+    z-index: 2;
+    
+    padding: 15px 35px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #ffffff;
+    
+    /* Efek kaca pada tombol */
+    background-color: rgba(255, 255, 255, 0.15);
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    
+    border-radius: 50px; /* Membuat sudut sangat tumpul */
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    
+    /* Transisi untuk hover effect yang mulus */
+    transition: all 0.3s ease;
 }
 
-.bg-1 {
-    background-image: radial-gradient(white, #f0e9e9);
-}
-
-.about-config {
-    padding-top: 50px;
-    padding-bottom: 10px;
-}
-
-.p-ab-conf {
-    font-size: 16pt;
-    padding-bottom: 20px;
-}
-
-.content-conf {
-    background-image: linear-gradient(#7735ff, #4a91ff);
-}
-
-.bg-3 {
-    background-image: linear-gradient(white, #dcdcdc);
-}
-
-.bg-4 {
-    background-image: linear-gradient(#f7f7f7, #e9e9e9);
-}
-
-.bg-contact {
-    background-color: #fcfcfc;
-}
-
-.bg-contact:hover {
-    background-color: #ededed;
-}
-
-.bg-wa {
-    background-image: linear-gradient(#0ed500, #149205);
-}
-
-.ul-conf .li-conf   {
-    float: inline-end;
-    list-style-type: none;
-    margin-right: 30px;
-    padding: 8px;
-}
-
-.ul-conf .li-conf:hover {
-    background-color: #3d3d3d;
+/* --- Efek Hover pada Tombol --- */
+.cta-button:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-3px) scale(1.05); /* Sedikit mengangkat tombol */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2); /* Memberi bayangan */
 }

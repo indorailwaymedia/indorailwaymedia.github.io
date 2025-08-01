@@ -16,7 +16,7 @@ html, body {
     width: 100%;
     
     /* GANTI URL GAMBAR DI BAWAH INI */
-    background-image: url('https://images.unsplash.com/photo-1507525428034-b723a9ce6890?q=80&w=2070&auto=format&fit=crop');
+    background-image: url('img/DSC05274.jpg');
     
     background-size: cover; /* Gambar menutupi seluruh area */
     background-position: center; /* Posisi gambar di tengah */
